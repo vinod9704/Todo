@@ -12,9 +12,8 @@ const PORT = process.env.PORT || 8000;
 app.use(helmet());
 app.use(morgan('combined'));
 app.use(cors({
-  origin: [ 
+  origin: 
      "http://localhost:8080",
-  ],
   credentials: true
 }));
 app.use(express.json());
@@ -47,7 +46,7 @@ app.use('*', (req, res) => {
 });
 
 // Database connection
-mongoose.connect("mongodb+srv://hosannaking2019_db_user:gJ7fFcmqiDLKJjg9@cluster0.p9rfs0q.mongodb.net/testdb?appName=Cluster0"||process.env.MONGODB_URI || 'mongodb://localhost:27017/todo-list', {
+mongoose.connect("mongodb+srv://sunandvemavarapu_db_user:HM86RZ1re9g2mQpg@todos.vidxu9x.mongodb.net/"||process.env.MONGODB_URI || 'mongodb://localhost:27017/todo-list', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
