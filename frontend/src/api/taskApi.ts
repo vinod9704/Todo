@@ -48,7 +48,17 @@ export const taskApi = {
 
   // Toggle task completion status
   toggleTask: async (id: string, completed: boolean): Promise<Task> => {
-    return taskApi.updateTask(id, { completed });
+    const response = await fetch(`${API_BASE_URL}/tasks/${id}/toggle`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ completed }),
+    });
+    if (!response.ok) {
+      throw new Error("Failed to toggle task");
+    }
+    return response.json();
   },
 
   // Delete a task
