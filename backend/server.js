@@ -12,8 +12,7 @@ const PORT = process.env.PORT || 8000;
 app.use(helmet());
 app.use(morgan('combined'));
 app.use(cors({
-  origin: 
-     "http://localhost:8080",
+  origin: "https://todo-frontned.onrender.com"  || process.env.FRONTEND_URL || 'http://localhost:8080',
   credentials: true
 }));
 app.use(express.json());
